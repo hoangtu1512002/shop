@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --white-color: #fff;
+  --bg-color: #fafbfe;
+  --text-color: #092C4C;
+  --sub-text-color: #495057;
+  --black-color: #000;
+  --pink-color: #ff3c7e;
+  --blue-color: #1b78a7;
+  --yellow-color: #ff9f43;
+  --red-color: #ff0000;
+  --border-color: #adb5bd;
+
+  --time-delay: 0.3s;
+
+  --header-height: 76px;
+  --sidebar-width: 280px;
+  --sidebar-not-show-text: calc(var(--sidebar-width) - 200px);
+
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+  font-family: var(--bs-font-sans-serif);
+}
+
+html {
+  color: var(--text-color);
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #c1c1c1;
+}
+
+.sidebar-show-text {
+  width: var(--sidebar-width);
+  transition: all var(--time-delay) ease-in-out;
+}
+
+.sidebar-not-show-text {
+  width: calc(var(--sidebar-width) - 200px);
+  transition: all var(--time-delay) ease-in-out;
+}
+
+.header-left {
+  transition: all var(--time-delay) ease-in-out;
+}
+
+.dropdown-show {
+  position: relative;
+}
+
+:where(.css-dev-only-do-not-override-19iuou).ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--blue-color);
+}
+
+:where(.css-dev-only-do-not-override-19iuou).ant-checkbox-indeterminate .ant-checkbox-inner:after {
+  background-color: var(--blue-color);
+}
+
+.ant-table-cell::first-letter {
+  text-transform: uppercase;
+}

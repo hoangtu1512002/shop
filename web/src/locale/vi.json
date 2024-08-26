@@ -1,0 +1,47 @@
+{
+    "field": {
+        "username": "Tài khoản",
+        "password": "Mật khẩu",
+        "email": "Email",
+        "phone": "Số điện thoại"
+    },
+    "validate": {
+        "required": "{ field } không được để trông"
+    },
+    "form": {
+        "login": "đăng nhập"
+    },
+    "menus": {
+        "dashboard": "bảng điều khiển",
+        "products": "quản lý sản phẩm",
+        "child": {
+            "product_list": "danh sách sản phẩm"
+        }
+    },
+    "text": {
+        "product": "sản phẩm",
+        "category": "danh mục",
+        "empty_data": "không có dữ liệu",
+        "effect": "hiệu lực",
+        "invalid": "vô hiệu"
+    },
+    "button": {
+        "add": "thêm mới { field }"
+    },
+    "page_title": {
+        "title": "danh sách { field }",
+        "sub_title": "quản lý { field } của bạn"
+    },
+    "table": {
+        "stt": "stt",
+        "table": "{ field }",
+        "name": "tên { field }",
+        "code": "mã { field }",
+        "category": "danh mục { field }",
+        "branch": "thương hiệu",
+        "price": "giá tiền",
+        "total": "số lượng",
+        "status": "trạng thái",
+        "action": "hành động"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "field": {
+        "username": "Username",
+        "password": "Password",
+        "email": "Email",
+        "phone": "Phone"
+    }
+}
