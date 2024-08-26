@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-    baseURL: "https://fakestoreapi.com/",
+    baseURL: 'http://127.0.0.1:8000/api/v1/',
     timeout: 10000,
     headers: {
         "Content-Type": "application/json",
@@ -11,9 +11,9 @@ const axiosClient = axios.create({
 axiosClient.interceptors.request.use(
     function (config) {
         $loading.show();
-        const token = sessionStorage.getItem("token");
-        if (token) {
-            config.headers.Authorization = "Bearer " + token;
+        const access_token = sessionStorage.getItem("access_token");
+        if (access_token) {
+            config.headers.Authorization = "Bearer " + access_token;
         }
         return config;
     },

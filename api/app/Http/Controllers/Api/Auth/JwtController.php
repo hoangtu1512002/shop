@@ -22,7 +22,7 @@ class JwtController extends Controller
         $credentials = request(['email', 'password']);
 
         if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], Response::HTTP_UNAUTHORIZED);
+            return response()->json(['error' => 'Unauthorized', 'message' => trans('auth.login.failed')], Response::HTTP_UNAUTHORIZED);
         }
 
         $refreshToken = $this->createRefreshToken();

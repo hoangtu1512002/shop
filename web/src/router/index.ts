@@ -16,6 +16,8 @@ router.beforeEach((to, _from, next) => {
     const isAdminRoute = to.fullPath.includes("/admin");
     if (isAdminRoute && to.meta.requiresAuth && isLoggedIn() === false) {
         $loading.show();
+        console.log(to);
+        
         next({
             path: "/admin/login",
             query: { redirect: to.fullPath },
@@ -32,8 +34,8 @@ router.afterEach((to) => {
 });
 
 const isLoggedIn = () => {
-    const token = sessionStorage.getItem("token");
-    return token !== null;
+    const access_token = sessionStorage.getItem("access_token");
+    return access_token !== null;
 };
 
 export default router;

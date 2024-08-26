@@ -14,8 +14,8 @@
                     {{ $t("form.login") }}
                 </h1>
 
-                <a-form-item :label="$t('field.username')" name="username" :label-col="labelCol">
-                    <a-input v-model:value="formState.username" />
+                <a-form-item :label="$t('field.email')" name="email" :label-col="labelCol">
+                    <a-input v-model:value="formState.email" />
                 </a-form-item>
 
                 <a-form-item :label="$t('field.password')" name="password" :label-col="labelCol">
@@ -42,8 +42,10 @@
     import { useI18n } from "vue-i18n";
     import { auth } from "@/api";
 
+    const LOGIN_URL = "/auth/admin/login";
+
     interface FormState {
-        username: string;
+        email: string;
         password: string;
     }
 
@@ -55,13 +57,13 @@
     const formRef = ref<FormInstance>();
 
     const formState = reactive<FormState>({
-        username: "",
+        email: "",
         password: "",
     });
 
     const labelCol = { style: { fontWeight: 600 } };
 
-    const validateUsername = async (rule: Rule, value: string) => {
+    const validateEmail = async (rule: Rule, value: string) => {
         if (!value) {
             return notiError("validate.required", rule.field);
         }
@@ -74,7 +76,7 @@
     };
 
     const rules: Record<string, Rule[]> = {
-        username: [{ validator: validateUsername, trigger: "change" }],
+        email: [{ validator: validateEmail, trigger: "change" }],
         password: [{ validator: validatePass, trigger: "change" }],
     };
 
@@ -82,11 +84,11 @@
         try {
             const redirect = route.query.redirect ? route.query.redirect : "/admin";
 
-            await auth.login("auth/login", JSON.stringify(values));
+            await auth.login(LOGIN_URL, JSON.stringify(values));
 
             router.push(redirect as string);
         } catch (error: any) {
-            $alert.error(error);
+            $alert.error(error.message);
         }
     };
 
